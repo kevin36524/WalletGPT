@@ -1,0 +1,61 @@
+
+###
+GET https://us-central1-twiliotest-8d802.cloudfunctions.net/getAuthenticationURL?state=abcd1
+
+###
+GET http://127.0.0.1:5001/wallet-gpt-924f1/us-central1/getAuthenticationURL?state=abcd&redirect_uri=oath.email
+
+###
+GET https://us-central1-twiliotest-8d802.cloudfunctions.net/fetchMails?state=abcd1&redirectUri=
+
+
+https://us-central1-wallet-gpt-924f1.cloudfunctions.net/undefined?code=4/0AfJohXl8dKId6FIzMB01dcX3epsytRc6AkslnTF-zBeRthgO9jbT2-tZMU2XcNhMud0s5w&state=abcd
+
+###
+POST http://127.0.0.1:5001/wallet-gpt-924f1/us-central1/getTokensFromCode
+
+
+
+###
+POST http://127.0.0.1:5001/wallet-gpt-924f1/us-central1/addIncomeToWallet
+Authorization: Bearer <YOUR TOKEN>
+Content-Type: application/json
+
+{
+    "amount": 10,
+    "description": "Pocket Money"
+}
+
+
+###
+POST http://127.0.0.1:5001/wallet-gpt-924f1/us-central1/addExpenseToWallet
+Authorization: Bearer <YOUR TOKEN>
+Content-Type: application/json
+
+{
+    "amount": 2.35,
+    "description": "Lunch at Taco Bell"
+}
+
+
+###
+POST http://127.0.0.1:5001/wallet-gpt-924f1/us-central1/addExpenseToWallet
+Authorization: Bearer <YOUR TOKEN>
+Content-Type: application/json
+
+{
+    "amount": 5.25,
+    "description": "Groceries at Walmart"
+}
+
+###
+GET http://127.0.0.1:5001/wallet-gpt-924f1/us-central1/resetWallet
+Authorization: Bearer <YOUR TOKEN>
+
+###
+GET http://127.0.0.1:5001/wallet-gpt-924f1/us-central1/getWalletBalance
+Authorization: Bearer <YOUR TOKEN>
+
+###
+GET http://127.0.0.1:5001/wallet-gpt-924f1/us-central1/getLatestTransactions
+Authorization: Bearer <YOUR TOKEN>

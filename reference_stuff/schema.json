@@ -1,0 +1,93 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Wallet API",
+      "license": {
+        "name": "MIT"
+      }
+    },
+    "servers": [
+      {
+        "url": "https://us-central1-wallet-gpt-924f1.cloudfunctions.net"
+      }
+    ],
+    "paths": {
+      "/getWalletBalance": {
+        "get": {
+          "operationId": "getWalletBalance",
+          "description": "Get the current money in the wallet",
+          "parameters": [],
+          "deprecated": false
+        }
+      },
+      "/resetWallet": {
+        "get": {
+          "operationId": "resetWallet",
+          "description": "Remove all the transaction records and reset the wallet amount",
+          "parameters": [],
+          "deprecated": false
+        }
+      },
+      "/getLatestTransactions": {
+        "get": {
+          "operationId": "getLatestTransactions",
+          "description": "Get the latest transactions happened on the wallet",
+          "parameters": [],
+          "deprecated": false
+        }
+      },
+      "/addIncomeToWallet": {
+        "post": {
+          "description": "Add record of credit or incoming transaction",
+          "operationId": "addIncomeToWallet",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "amount",
+              "required": true,
+              "schema": {
+                "type": "number",
+                "description": "Amount of money to be added to the wallet"
+              }
+            },
+            {
+              "in": "body",
+              "name": "description",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "description": "A note for adding the amount to wallet"
+              }
+            }
+          ]
+        }
+      },
+      "/addExpenseToWallet": {
+        "post": {
+          "description": "Add record of expense or debit transaction",
+          "operationId": "addExpenseToWallet",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "amount",
+              "required": true,
+              "schema": {
+                "type": "number",
+                "description": "Amount of money to be substracted from the wallet"
+              }
+            },
+            {
+              "in": "body",
+              "name": "description",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "description": "A note describing the expense"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
