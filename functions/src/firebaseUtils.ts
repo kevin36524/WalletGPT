@@ -14,11 +14,11 @@ export type UserProfileData = {
 };
 
 export const getOauth2Client = function(clientID:string|null = null, clientSecret:string|null = null, redirectURI:string|null = null) {
-  const config = functions.config().google_oauth;
-  const client_id = clientID || config.client_id;
-  const client_secret = clientSecret || config.client_secret;
-  const redirect_uri = redirectURI || config.redirect_uri;
+  const client_id = clientID || process.env.GOOGLE_OAUTH_CLIENT_ID;
+  const client_secret = clientSecret || process.env.GOOGLE_OAUTH_CLIENT_SECRET;
+  const redirect_uri = redirectURI || process.env.GOOGLE_OAUTH_REDIRECT_URI;
 
+  console.log(`client_id ${client_id} and clientID is ${clientID}`);
   const oAuth2Client = new OAuth2Client(
       client_id,
       client_secret,

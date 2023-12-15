@@ -124,9 +124,11 @@ export const getWalletBalance = async (request: functions.Request, response: fun
 
   try {
     const userDocSnapShot = await userDoc.get();
+    if (!userDocSnapShot.exists) {
+      response.send({balance: 0});
+    }
     const userData = userDocSnapShot.data() as UserWallet;
     response.send({balance: (Math.round(userData.amount * 100)/100)});
-    // await userDoc.delete();
   } catch (error) {
     functions.logger.error(`Error ${(error as Error).message}`);
     response.status(500).send("Some issues");

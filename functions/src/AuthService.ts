@@ -38,10 +38,13 @@ export const oauthRedirect = async function(req:functions.Request, resp:function
 };
 
 export const getTokensFromCode = async function(req:functions.Request, resp:functions.Response) {
-  const {clientId, clientSecret, code, refresh_token} = req.body;
+  const {client_id, client_secret, code, refresh_token} = req.body;
 
   try {
-    const oAuth2Client = getOauth2Client(clientId, clientSecret);
+    if (!client_id || !client_secret) {
+      throw (new Error("missing client_id or client_secret"));
+    }
+    const oAuth2Client = getOauth2Client(client_id, client_secret);
     if (refresh_token) {
       oAuth2Client.setCredentials({refresh_token: refresh_token});
       const tokens = await oAuth2Client.getAccessToken();

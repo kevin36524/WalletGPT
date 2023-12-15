@@ -1,20 +1,25 @@
+###
+GET http://127.0.0.1:5001/wallet-gpt-924f1/us-central1/getAuthenticationURL?state=abcd&redirect_uri=your_redirect_uri.com
 
 ###
-GET https://us-central1-twiliotest-8d802.cloudfunctions.net/getAuthenticationURL?state=abcd1
+GET https://us-central1-wallet-gpt-924f1.cloudfunctions.net/getTokensFromCode?code=<YOUR_CODE>&state=abcd
+Content-Type: application/json
 
-###
-GET http://127.0.0.1:5001/wallet-gpt-924f1/us-central1/getAuthenticationURL?state=abcd&redirect_uri=oath.email
-
-###
-GET https://us-central1-twiliotest-8d802.cloudfunctions.net/fetchMails?state=abcd1&redirectUri=
-
-
-https://us-central1-wallet-gpt-924f1.cloudfunctions.net/undefined?code=4/0AfJohXl8dKId6FIzMB01dcX3epsytRc6AkslnTF-zBeRthgO9jbT2-tZMU2XcNhMud0s5w&state=abcd
+{
+    "client_id": "YOUR_CLIENT_ID", 
+    "client_secret": "YOUR_CLIENT_SECRET",
+    "code": "YOUR_CODE"
+}
 
 ###
 POST http://127.0.0.1:5001/wallet-gpt-924f1/us-central1/getTokensFromCode
+Content-Type: application/json
 
-
+{
+    "client_id": "YOUR_CLIENT_ID", 
+    "client_secret": "YOUR_CLIENT_SECRET",
+    "refresh_token": "YOUR_REFRESH_TOKEN"
+}
 
 ###
 POST http://127.0.0.1:5001/wallet-gpt-924f1/us-central1/addIncomeToWallet
