@@ -41,11 +41,8 @@ export const getTokensFromCode = async function(req:functions.Request, resp:func
   const {client_id, client_secret, code, refresh_token} = req.body;
 
   try {
-    if (!client_id || !client_secret) {
-      throw (new Error("missing client_id or client_secret"));
-    }
-    const oAuth2Client = getOauth2Client(client_id, client_secret);
     if (refresh_token) {
+      const oAuth2Client = getOauth2Client();
       oAuth2Client.setCredentials({refresh_token: refresh_token});
       const tokens = await oAuth2Client.getAccessToken();
       if (tokens.res) {
@@ -55,6 +52,10 @@ export const getTokensFromCode = async function(req:functions.Request, resp:func
       }
       return;
     }
+    if (!client_id || !client_secret) {
+      throw (new Error("missing client_id or client_secret"));
+    }
+    const oAuth2Client = getOauth2Client(client_id, client_secret);
     const {tokens} = await oAuth2Client.getToken(code);
     const expiryDate = tokens.expiry_date as number;
 
@@ -62,6 +63,7 @@ export const getTokensFromCode = async function(req:functions.Request, resp:func
 
     resp.send(retObj);
   } catch (error) {
+    functions.logger.error(`Error ${(error as Error).message}`);
     resp.status(500).send(`Error ${(error as Error).message}`);
   }
 };

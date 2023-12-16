@@ -58,7 +58,6 @@ export const addIncomeToWallet = async (request: functions.Request, response: fu
   functions.logger.info(`Got the response ${JSON.stringify(user)}`);
   const {amount, description} = request.body;
   if (!user) {
-    response.status(500).send("Could not locate user");
     return;
   }
 
@@ -76,7 +75,6 @@ export const addExpenseToWallet = async (request: functions.Request, response: f
   const user = await firebaseUtils.commonRequestHandler(request, response);
   const {amount, description} = request.body;
   if (!user) {
-    response.status(500).send("Could not locate user");
     return;
   }
 
@@ -93,7 +91,6 @@ export const resetWallet = async (request:functions.Request, response: functions
   const user = await firebaseUtils.commonRequestHandler(request, response);
 
   if (!user) {
-    response.status(500).send("Could not locate user");
     return;
   }
 
@@ -115,7 +112,6 @@ export const getWalletBalance = async (request: functions.Request, response: fun
   const user = await firebaseUtils.commonRequestHandler(request, response);
 
   if (!user) {
-    response.status(500).send("Could not locate user");
     return;
   }
 
@@ -139,7 +135,6 @@ export const getLatestTransactions = async (request: functions.Request, response
   const user = await firebaseUtils.commonRequestHandler(request, response);
 
   if (!user) {
-    response.status(500).send("Could not locate user");
     return;
   }
 

@@ -31,7 +31,7 @@ admin.initializeApp();
 
 export const store = admin.firestore();
 
-const userFromRequest = async (request:functions.Request) => {
+const userFromRequest = async (request:functions.Request, response: functions.Response) => {
   const authorizationHeader = request.headers.authorization;
   if (!authorizationHeader) {
     throw (Error("Missing Authorization Headers"));
@@ -45,6 +45,11 @@ const userFromRequest = async (request:functions.Request) => {
   const userinfo = await oAuth2Client.request({
     url: "https://www.googleapis.com/oauth2/v3/userinfo",
   });
+
+  if (userinfo.status != 200) {
+    response.status(userinfo.status).send(userinfo.data);
+    return null;
+  }
 
   functions.logger.info(JSON.stringify(userinfo.data));
 
@@ -72,7 +77,7 @@ export const commonRequestHandler = async (request:functions.Request, response: 
   }
 
   try {
-    const user = await userFromRequest(request);
+    const user = await userFromRequest(request, response);
     return user;
   } catch (error) {
     functions.logger.error(`error: ${(error as Error).message}`);
