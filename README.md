@@ -2,8 +2,16 @@
 
 WalletGPT is an innovative application designed to track expenses and manage your wallet efficiently. Utilizing the power of GPT, this application offers a seamless and interactive experience for managing your personal finances.
 
+# PDFs for the video walkthrough
+[part1.pdf](https://github.com/kevin36524/WalletGPT/files/13725044/part1.pdf)
+[part2.pdf](https://github.com/kevin36524/WalletGPT/files/13725048/part2.pdf)
+[part3.pdf](https://github.com/kevin36524/WalletGPT/files/13725047/part3.pdf)
+[part4.pdf](https://github.com/kevin36524/WalletGPT/files/13725046/part4.pdf)
+[part5.pdf](https://github.com/kevin36524/WalletGPT/files/13725045/part5.pdf)
+
 ## Experience WalletGPT
 Try WalletGPT live at: [WalletGPT Experience](https://chat.openai.com/g/g-YsCO6x6Ad-wallet-expense-tracker)
+
 
 ## Features
 - **Get Wallet Balance:** Retrieve the current balance in your wallet.
