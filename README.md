@@ -58,7 +58,7 @@ Here are the high-level instructions. Please refer to [Part 4 - Building our ser
        - clientID, clientSecret and your authorized Redirect URI you see above.
     - Now copy the .env.local to .env.default
 - Run `npm run deploy`
-- Test with testRequests.http.
+- Test with [testRequests.http](functions/reference_stuff/testRequests.http).
     - Replace the base URL and test it out.
 
 ## Creating the GPT and hooking it up with your cloud functions.
@@ -89,9 +89,8 @@ Here are the high-level instructions. Please refer to [Part 5 - youtube video](h
        `https://<your_cloudfunctions_base_url>/getAuthenticationURL`
     - Add tokenURL:
        `https://<your_cloudfunctions_base_url>/getTokensFromCode`
-- Copy the contents of `schema.json` from [reference_stuff](functions/reference_stuff/schema.json) and paste in the
-    schema section.
-       - Replace servers[0].url to your cloudfunction base URL.
+- Copy the contents of [schema.json](functions/reference_stuff/schema.json) and paste in the schema section.
+       - Replace `servers[0].url` to your cloudfunction base URL.
        - This schema tells GPT about all the available functionalities.
 - Publish - only to me
     - Now you will be able to try out the GPT
