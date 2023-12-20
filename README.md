@@ -89,9 +89,9 @@ Here are the high-level instructions. Please refer to [Part 5 - youtube video](h
        `https://<your_cloudfunctions_base_url>/getAuthenticationURL`
     - Add tokenURL:
        `https://<your_cloudfunctions_base_url>/getTokensFromCode`
-- Copy the contents of [schema.json](functions/reference_stuff/schema.json) and paste in the schema section.
-       - Replace `servers[0].url` to your cloudfunction base URL.
-       - This schema tells GPT about all the available functionalities.
+- Copy the contents of [schema.json](functions/reference_stuff/schema.json) and paste in the schema section
+    - Replace `servers[0].url` to your cloudfunction base URL.
+    - This schema tells GPT about all the available functionalities.
 - Publish - only to me
     - Now you will be able to try out the GPT
 
@@ -141,12 +141,5 @@ This project is licensed under the MIT License.
 ## Contributing
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 ## Contact
 For any queries or contributions, please reach out to us at kevin36524@gmail.com.
-
